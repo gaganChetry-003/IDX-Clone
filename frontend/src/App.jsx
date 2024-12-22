@@ -1,8 +1,11 @@
+
 import { PingComponent } from './components/atoms/PingComponent';
 import usePing from './hooks/apis/queries/usePing'
 
-import { CreateProject } from './pages/CreateProject';
-import { Routes, Route } from 'react-router-dom'
+
+
+
+import { Router } from './Router';
 
 
 function App() {
@@ -11,11 +14,7 @@ function App() {
 
 
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<CreateProject />}></Route>
-      </Routes>
-    </>
+   <Router/>
   )
 
 

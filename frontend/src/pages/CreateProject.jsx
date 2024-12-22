@@ -1,11 +1,13 @@
 
 import { useCreateProject } from "../hooks/apis/mutations/useCreateProject"
-
+import { useNavigate } from "react-router-dom";
 
 
 export const CreateProject = () => {
 
   const { createProjectMutation } = useCreateProject();
+
+  const navigate = useNavigate();
 
 
 
@@ -14,6 +16,7 @@ export const CreateProject = () => {
     try {
       const response = await createProjectMutation();
       console.log("Now we should redirect to the editor", response);
+      navigate(`/project/${response.data}`);
 
     } catch (error) {
       console.log("Error creating project", error);
@@ -24,7 +27,7 @@ export const CreateProject = () => {
 
     <>
 
-      <button  
+      <button
 
         onClick={handleCreateProject}
       >
